@@ -1,7 +1,7 @@
 class Artist
 
   attr_accessor :name
-  @@all
+  @@all = []
 
   def self.all
     @@all
@@ -10,6 +10,6 @@ class Artist
   def initialize(name)
     @name = name
     @@all << self
-  end 
+  end
 
 end
