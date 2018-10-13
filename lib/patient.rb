@@ -1,16 +1,27 @@
-class Appointment
+class Patient
 
-  attr_accessor :patient, :doctor, :date
+  attr_accessor :name
   @@all = []
+  @@appointments = []
 
   def self.all
     @@all
   end
 
-  def initialize(date, patient, doctor)
-    @patient = patient
-    @doctor = doctor
-    @date = date
+  def initialize(name)
+    @name = name
     @@all << self
+  end
+
+  def new_appointment(name, doctor)
+    appointment.new(name, self, doctor)
+  end
+
+  def appointments
+    appointment.all.select {|appointment| appointment.artist == self}
+  end
+
+  def doctors
+    self.appointments.map {|appointment| appointment.doctor}.uniq
   end
 end
