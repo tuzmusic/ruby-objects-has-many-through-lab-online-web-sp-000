@@ -2,6 +2,7 @@ class Artist
 
   attr_accessor :name
   @@all = []
+  @@songs = []
 
   def self.all
     @@all
